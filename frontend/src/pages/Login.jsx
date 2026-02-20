@@ -117,11 +117,11 @@ export default function Login() {
 
       <label style={styles.checkboxRow}>
         <input type="checkbox" checked={consentWhatsApp} onChange={(e) => setConsentWhatsApp(e.target.checked)} />
-        Allow MY SGI to send you message on whatsapp
+        Allow us to send you messages on WhatsApp
       </label>
 
       <p style={styles.terms}>
-        By clicking continue you are agree to MYSGI's{' '}
+        By clicking continue you agree to our{' '}
         <a href="#" style={styles.link}>Terms &amp; Conditions</a>
       </p>
 

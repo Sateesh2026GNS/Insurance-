@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
 
-from app.api import users, claims, health_claims, life_claims, admin
+from app.api import users, claims, health_claims, life_claims, admin, policies, notifications
 from app.api import auth as auth
 from app.core.config import settings
 from app.db.init_db import init_db
@@ -37,6 +37,8 @@ app.include_router(claims.router, prefix="/api/claims", tags=["claims"])
 app.include_router(health_claims.router, prefix="/api/claims/health", tags=["health-claims"])
 app.include_router(life_claims.router, prefix="/api/claims/life", tags=["life-claims"])
 app.include_router(admin.router, prefix="/api/admin", tags=["admin"])
+app.include_router(policies.router, prefix="/api/policies", tags=["policies"])
+app.include_router(notifications.router, prefix="/api/notifications", tags=["notifications"])
 
 
 @app.get("/")

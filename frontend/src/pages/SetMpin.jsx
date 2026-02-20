@@ -83,7 +83,7 @@ export default function SetMpin() {
     if (!valid) return
     try {
       await api.post('/auth/mpin/set', { mpin: valA, confirm_mpin: valB })
-      navigate('/dashboard')
+      navigate('/mpin/success')
     } catch (err) {
       alert(err.response?.data?.detail || 'Failed to set MPIN')
     }

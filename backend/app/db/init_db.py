@@ -1,6 +1,6 @@
 from app.db.base import Base
 from app.db.session import engine
-from app.models import User, Claim, Document, OTPCode, UserMPIN
+from app.models import User, Claim, Document, OTPCode, UserMPIN, Notification
 
 
 def init_db() -> None:

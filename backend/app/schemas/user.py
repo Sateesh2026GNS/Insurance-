@@ -1,11 +1,11 @@
-from pydantic import BaseModel, EmailStr, field_validator
+from pydantic import BaseModel, field_validator
 from datetime import datetime, date
 from typing import Optional
 
 
 class UserBase(BaseModel):
     name: str
-    email: EmailStr
+    email: str  # Using str instead of EmailStr to allow placeholder emails like @placeholder.local
     mobile: str
     date_of_birth: Optional[date] = None
     address: Optional[str] = None
@@ -43,6 +43,18 @@ class UserResponse(UserBase):
     is_active: bool
     role: str
     created_at: Optional[datetime] = None
+
+    class Config:
+        from_attributes = True
+
+
+class UserUpdate(BaseModel):
+    """Schema for updating user profile - all fields optional"""
+    name: Optional[str] = None
+    email: Optional[str] = None
+    date_of_birth: Optional[date] = None
+    address: Optional[str] = None
+    aadhaar: Optional[str] = None
 
     class Config:
         from_attributes = True
